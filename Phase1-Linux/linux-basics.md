@@ -28,11 +28,12 @@
 ## Remove a File
 - rm myfile.txt
 
-###  Task 2.1: File Permissions & Ownership
+#  Task 2.1: File Permissions & Ownership
+
 - chmod examples
 - chown usage
 
-##Check Permissions with ls -l
+## Check Permissions with ls -l
 
 - ls -l
 You’ll see something like:
