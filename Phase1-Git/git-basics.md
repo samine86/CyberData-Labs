@@ -81,9 +81,6 @@ When GitHub asks for a password during `git push`, use your **Personal Access To
 ```
 
 
-```markdown
-# Git Basics
-
 ## 10. Pulling Updates from GitHub (Sync Local Repo)
 ```bash
 git pull origin main
