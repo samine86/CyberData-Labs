@@ -128,7 +128,6 @@ git stash pop
 git status
 ```
 - Always check your repo's status before pulling or pushing.
-```
 
 ---
 
@@ -137,7 +136,7 @@ git status
 git add -u
 ```
 - Stages only **modified and deleted** files for commit.
-- Useful when removing unwanted files from Git.
-```
+- Useful when removing unwanted files from Git
+
 ---
 
