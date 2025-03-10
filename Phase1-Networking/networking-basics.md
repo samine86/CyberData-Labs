@@ -1,4 +1,3 @@
-```markdown
 # 🌐 Networking Basics
 
 ## 📌 Step 1: Finding Local IP Address & Default Gateway  
