@@ -129,3 +129,15 @@ git status
 ```
 - Always check your repo's status before pulling or pushing.
 ```
+
+---
+
+## 14. Staging Deleted Files
+```bash
+git add -u
+```
+- Stages only **modified and deleted** files for commit.
+- Useful when removing unwanted files from Git.
+```
+---
+
