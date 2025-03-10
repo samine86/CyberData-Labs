@@ -54,7 +54,6 @@ This repo will also include **real-world projects** covering:
 
 ## 📫 **Connect With Me**
 📌 **GitHub Discussions** – Feel free to ask questions or suggest improvements!  
-📌 **LinkedIn:** [Your LinkedIn Profile](https://linkedin.com/in/yourprofile)  
 
 ---
 
