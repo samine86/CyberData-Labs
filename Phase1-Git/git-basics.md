@@ -61,32 +61,8 @@ Displays a chronological list of commits in your current branch.
 
 ---
 
-## 8. Creating a New Branch
-```bash
-git checkout -b <new-branch-name>
-```
-Creates **and** switches to a new branch.  
-Example: `git checkout -b feature/my-new-feature`
 
----
-
-## 9. Switching Branches
-```bash
-git checkout <branch-name>
-```
-Switches to an existing branch.
-
----
-
-## 10. Merging a Branch
-```bash
-git merge <branch-name>
-```
-Merges the specified branch into your current branch.
-
----
-
-## 11. Checking Remote Configuration
+## 8. Checking Remote Configuration
 ```bash
 git remote -v
 ```
@@ -94,7 +70,7 @@ Shows which remote repo(s) you have linked and their URLs.
 
 ---
 
-## 12. Personal Access Token (For HTTPS Push)
+## 9. Personal Access Token (For HTTPS Push)
 When GitHub asks for a password during `git push`, use your **Personal Access Token** instead of your GitHub password.
 
 ---
@@ -102,4 +78,57 @@ When GitHub asks for a password during `git push`, use your **Personal Access To
 ### Additional Tips
 - **Ctrl + C** cancels a running command if you get stuck.
 - **ls**, **pwd**, **cd** are basic Bash commands often used alongside Git.
+```
+
+
+```markdown
+# Git Basics
+
+## 10. Pulling Updates from GitHub (Sync Local Repo)
+```bash
+git pull origin main
+```
+- Downloads the latest changes from the remote repository (GitHub) into your local machine.
+- If your default branch is `master`, use:
+  ```bash
+  git pull origin master
+  ```
+
+---
+
+## 11. Checking Commit History
+```bash
+git log --oneline -5
+```
+- Shows the last **5 commits** in a compact format.
+
+---
+
+## 12. What to Do if You Have Local Changes
+
+### Option 1: **Commit Your Local Changes Before Pulling**
+```bash
+git add .
+git commit -m "Save local changes before pulling updates"
+git pull origin main
+```
+- Saves your changes first before pulling new updates.
+
+### Option 2: **Temporarily Save Changes with Stash**
+```bash
+git stash
+git pull origin main
+git stash pop
+```
+- `git stash` temporarily saves your changes.
+- `git pull` gets the latest updates from GitHub.
+- `git stash pop` restores your saved changes after the pull.
+
+---
+
+## 13. Checking Repository Status
+```bash
+git status
+```
+- Always check your repo's status before pulling or pushing.
 ```
