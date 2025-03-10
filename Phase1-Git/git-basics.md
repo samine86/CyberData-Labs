@@ -78,8 +78,8 @@ When GitHub asks for a password during `git push`, use your **Personal Access To
 ### Additional Tips
 - **Ctrl + C** cancels a running command if you get stuck.
 - **ls**, **pwd**, **cd** are basic Bash commands often used alongside Git.
-```
 
+---
 
 ## 10. Pulling Updates from GitHub (Sync Local Repo)
 ```bash
