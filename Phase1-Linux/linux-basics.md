@@ -1,99 +1,103 @@
-# Linux Basics
+# 🐧 Linux Basics — Detailed Explanations
 
-## pwd
-- Prints the current working directory.
+## ✅ 1. Navigation Commands
 
-## ls
-- Lists files in the current directory.
-- Lists files/folders, shows permissions, owners, etc.- Example: `ls -la` shows detailed info (permissions, owner, etc.).
+### ➡️ `pwd`
+- **What it does:** Prints the current directory you are in (Print Working Directory).
+- **Why use it:** Helps you confirm where you are in the file system.
 
-## cd
-- Changes the current directory.
-- Note: In Git Bash, C:\ is /c/
-- cd .. move to previous dir
-- cd~
+### ➡️ `ls`
+- **What it does:** Lists all files and folders in the current directory.
+- **Why use it:** Quickly see available files and directories.
 
-## mkdir
-- Creates a new directory.
-- Usage: `mkdir testfolder`.
+### ➡️ `ls -l`
+- **What it does:** Lists files with detailed info (permissions, size, owner, last modified).
+- **Why use it:** To check file ownership and permissions.
 
-## View & Edit a File:
+### ➡️ `cd foldername`
+- **What it does:** Changes directory to `foldername`.
+- **Why use it:** To move around the file system.
 
-- Nano editor
-- example: nano myfile.txt
+### ➡️ `mkdir foldername`
+- **What it does:** Creates a new directory.
+- **Why use it:** Organize files into folders.
 
-## Check the contents
-- cat myfile.txt
+### ➡️ `rmdir foldername`
+- **What it does:** Removes an empty directory.
+- **Why use it:** Clean up unused folders.
 
-## Remove a File
-- rm myfile.txt
+## ✅ 2. File Operations
 
-#  Task 2.1: File Permissions & Ownership
+### ➡️ `touch filename`
+- **What it does:** Creates an empty file with the given name.
+- **Why use it:** Quickly create placeholder files for practice or testing.
 
-- chmod examples
-- chown usage
+### ➡️ `rm filename`
+- **What it does:** Removes (deletes) the file.
+- **Why use it:** Clean up unwanted files.
 
-## Check Permissions with ls -l
+### ➡️ `cat filename`
+- **What it does:** Displays the content of the file.
+- **Why use it:** Quickly read small text files.
 
-- ls -l
-You’ll see something like:
+### ➡️ `nano filename`
+- **What it does:** Opens the file in a simple text editor in the terminal.
+- **Navigation in nano:**
+  - **Ctrl + O**: Save file
+  - **Ctrl + X**: Exit nano
+  - **Ctrl + K**: Cut a line
+  - **Ctrl + U**: Paste the line
 
--rw-r--r-- 1 pi pi  4096 Apr 20 10:00 myfile.txt
-drwxr-xr-x 2 pi pi  4096 Apr 20 10:05 myfolder
+## ✅ 3. Permissions and Ownership
 
-The first character - or d indicates file (-) or directory (d).
-Next 9 characters are permissions in 3 groups: rwxr-xr-x
-r = read, w = write, x = execute, and - means that permission is absent.
-The first set is for the owner, second set for the group, third set for others.
+### ➡️ `ls -l filename`
+- **What it does:** Displays permissions (r=read, w=write, x=execute) for owner, group, others.
+- Example: `-rw-r--r--` means owner can read/write; group and others can only read.
 
-## Changing Permissions with chmod
+### ➡️ `chmod 755 filename`
+- **What it does:** Changes file permissions.
+- `7` (rwx), `5` (r-x) — This command gives full permission to the owner, and read/execute to others.
+- **Why use it:** Control who can read, write, or execute a file.
 
-Suppose you have a file test.sh. You want to make it executable for the owner only. You do:
-- chmod u+x test.sh
-u = user (owner), +x = add execute permission.
+### ➡️ `chown username:groupname filename`
+- **What it does:** Changes the file owner and group.
+- **Why use it:** Manage file ownership for security and proper access.
 
-If you want to remove write permission for group:
-- chmod g-w test.sh
-g = group, -w = remove write.
+## ✅ 4. Process Management
 
-## Changing Ownership with chown
-To change the owner (user) and group of test.sh:
-- sudo chown newowner:newgroup test.sh
-For example, if you create a new user alex, you could do:
-sudo chown alex:alex test.sh
+### ➡️ `ps aux`
+- **What it does:** Shows all running processes with user, CPU usage, memory usage, PID.
+- **Why use it:** Check what’s running and how resources are used.
 
+### ➡️ `ps aux | less`
+- **What it does:** Shows all processes but allows scrolling through output.
+- **Why use it:** When output is too long, `less` lets you scroll up/down.
+- **How to navigate:**
+  - Use Up/Down keys or PageUp/PageDown.
+  - Press `q` to exit back to terminal.
 
-### Task 2.2: Process Management
-- ps aux usage
-- top/htop usage
-- killing processes
+### ➡️ `top`
+- **What it does:** Displays real-time updates of system resource usage.
+- **Why use it:** Monitor what’s consuming CPU and memory.
 
-## ps Command
+### ➡️ `htop` (if installed)
+- **What it does:** An interactive and colorful real-time process viewer.
+- **Why use it:** Easier to navigate than `top`.
 
-- ps
-Lists processes in the current terminal session.
+### ➡️ `kill PID`
+- **What it does:** Terminates a process with the given Process ID.
+- **Why use it:** Stop unresponsive or unwanted processes.
 
-- ps aux
-Shows all processes for all users in a detailed format.
+## ✅ 5. Network Basics (Intro Preview)
 
-## top or htop
+### ➡️ `ip a`
+- **What it does:** Shows all network interfaces and their IP addresses.
+- **Why use it:** Check local IP address and network interface statuses.
 
-top gives a real-time view of running processes (CPU usage, memory, etc.).
-Press q to quit.
-If you prefer a nicer interface, install htop:
+### ➡️ `ip route | grep default`
+- **What it does:** Displays the default gateway (router IP).
+- **Why use it:** Know your network’s gateway for troubleshooting.
 
-sudo apt-get update
-sudo apt-get install htop
-htop
+---
 
-Press F10 or q to quit htop
-
-## Killing a Process
-If a process is stuck or unresponsive, you can kill it:
-- kill <PID>
-<PID> is the Process ID you see in ps aux or top.
-
-If it won’t die, try a stronger signal:
-- kill -9 <PID>
-Use this carefully, as it force-kills the process.
-
+✨ **As you learn more commands, add them to this file with detailed explanations.**
