@@ -2,102 +2,185 @@
 
 ## ✅ 1. Navigation Commands
 
-### ➡️ `pwd`
-- **What it does:** Prints the current directory you are in (Print Working Directory).
-- **Why use it:** Helps you confirm where you are in the file system.
+### ➡️ `pwd` (Print Working Directory)
+- **What it does:** Shows the full path of the current directory.
+- **Why use it:** Helps confirm where you are in the file system.
 
-### ➡️ `ls`
-- **What it does:** Lists all files and folders in the current directory.
-- **Why use it:** Quickly see available files and directories.
+### ➡️ `ls` (List Files)
+- **What it does:** Lists files and directories in the current location.
+- **Variations:**
+  - `ls -l` — Detailed listing (permissions, size, owner).
+  - `ls -a` — Shows hidden files (files starting with `.`).
+  - `ls -la` — Combined view (detailed + hidden files).
 
-### ➡️ `ls -l`
-- **What it does:** Lists files with detailed info (permissions, size, owner, last modified).
-- **Why use it:** To check file ownership and permissions.
-
-### ➡️ `cd foldername`
-- **What it does:** Changes directory to `foldername`.
-- **Why use it:** To move around the file system.
+### ➡️ `cd` (Change Directory)
+- **What it does:** Moves between directories.
+- **Usage Examples:**
+  - `cd foldername` — Move into a folder.
+  - `cd ..` — Move up one directory.
+  - `cd ~` — Move to home directory.
+  - `cd /` — Move to the root directory (`/`).
+- **Note:** In Git Bash, `C:\` is accessed as `/c/`.
 
 ### ➡️ `mkdir foldername`
-- **What it does:** Creates a new directory.
-- **Why use it:** Organize files into folders.
+- **What it does:** Creates a new folder.
+- **Usage Example:**
+```bash
+mkdir testfolder
+```
 
-### ➡️ `rmdir foldername`
-- **What it does:** Removes an empty directory.
-- **Why use it:** Clean up unused folders.
+---
 
 ## ✅ 2. File Operations
 
 ### ➡️ `touch filename`
 - **What it does:** Creates an empty file with the given name.
-- **Why use it:** Quickly create placeholder files for practice or testing.
+- **Usage Example:**
+```bash
+touch myfile.txt
+```
 
 ### ➡️ `rm filename`
-- **What it does:** Removes (deletes) the file.
-- **Why use it:** Clean up unwanted files.
+- **What it does:** Deletes a file.
+- **Usage Example:**
+```bash
+rm myfile.txt
+```
 
 ### ➡️ `cat filename`
-- **What it does:** Displays the content of the file.
-- **Why use it:** Quickly read small text files.
+- **What it does:** Displays the contents of a file.
+- **Usage Example:**
+```bash
+cat myfile.txt
+```
 
 ### ➡️ `nano filename`
-- **What it does:** Opens the file in a simple text editor in the terminal.
-- **Navigation in nano:**
-  - **Ctrl + O**: Save file
-  - **Ctrl + X**: Exit nano
-  - **Ctrl + K**: Cut a line
-  - **Ctrl + U**: Paste the line
-
-## ✅ 3. Permissions and Ownership
-
-### ➡️ `ls -l filename`
-- **What it does:** Displays permissions (r=read, w=write, x=execute) for owner, group, others.
-- Example: `-rw-r--r--` means owner can read/write; group and others can only read.
-
-### ➡️ `chmod 755 filename`
-- **What it does:** Changes file permissions.
-- `7` (rwx), `5` (r-x) — This command gives full permission to the owner, and read/execute to others.
-- **Why use it:** Control who can read, write, or execute a file.
-
-### ➡️ `chown username:groupname filename`
-- **What it does:** Changes the file owner and group.
-- **Why use it:** Manage file ownership for security and proper access.
-
-## ✅ 4. Process Management
-
-### ➡️ `ps aux`
-- **What it does:** Shows all running processes with user, CPU usage, memory usage, PID.
-- **Why use it:** Check what’s running and how resources are used.
-
-### ➡️ `ps aux | less`
-- **What it does:** Shows all processes but allows scrolling through output.
-- **Why use it:** When output is too long, `less` lets you scroll up/down.
-- **How to navigate:**
-  - Use Up/Down keys or PageUp/PageDown.
-  - Press `q` to exit back to terminal.
-
-### ➡️ `top`
-- **What it does:** Displays real-time updates of system resource usage.
-- **Why use it:** Monitor what’s consuming CPU and memory.
-
-### ➡️ `htop` (if installed)
-- **What it does:** An interactive and colorful real-time process viewer.
-- **Why use it:** Easier to navigate than `top`.
-
-### ➡️ `kill PID`
-- **What it does:** Terminates a process with the given Process ID.
-- **Why use it:** Stop unresponsive or unwanted processes.
-
-## ✅ 5. Network Basics (Intro Preview)
-
-### ➡️ `ip a`
-- **What it does:** Shows all network interfaces and their IP addresses.
-- **Why use it:** Check local IP address and network interface statuses.
-
-### ➡️ `ip route | grep default`
-- **What it does:** Displays the default gateway (router IP).
-- **Why use it:** Know your network’s gateway for troubleshooting.
+- **What it does:** Opens a simple text editor in the terminal.
+- **Nano Shortcuts:**
+  - `Ctrl + O` — Save changes
+  - `Ctrl + X` — Exit
+  - `Ctrl + K` — Cut line
+  - `Ctrl + U` — Paste line
 
 ---
 
-✨ **As you learn more commands, add them to this file with detailed explanations.**
+## ✅ 3. File Permissions & Ownership
+
+### ➡️ `ls -l` (Check File Permissions)
+- **What it does:** Shows file permissions in detail.
+- **Example Output:**
+```bash
+-rw-r--r-- 1 pi pi 4096 Apr 20 10:00 myfile.txt
+drwxr-xr-x 2 pi pi 4096 Apr 20 10:05 myfolder
+```
+- First character: `-` (file) or `d` (directory).
+- Permissions in three groups: `rwxr-xr-x` (owner, group, others).
+- `r` = read, `w` = write, `x` = execute.
+
+### ➡️ `chmod` (Change File Permissions)
+- Add execute permission for user:
+```bash
+chmod u+x test.sh
+```
+- Remove write permission for group:
+```bash
+chmod g-w test.sh
+```
+- Numeric permission example:
+```bash
+chmod 755 myscript.sh
+```
+- `7` (rwx), `5` (r-x) — Full permissions for owner, read-execute for others.
+
+### ➡️ `chown` (Change File Ownership)
+- Change owner and group:
+```bash
+sudo chown newuser:newgroup myfile.txt
+```
+- Example:
+```bash
+sudo chown alex:alex test.sh
+```
+
+---
+
+## ✅ 4. Process Management
+
+### ➡️ `ps aux` (List Running Processes)
+- **What it does:** Shows active processes with CPU, memory usage, and users.
+- **Key Information:** PID (process ID), CPU%, memory%, command.
+
+### ➡️ `ps aux | less` (Scrollable Process List)
+- **What it does:** Displays processes with scrollable output.
+- **Navigation:**  
+  - Arrow keys / PageUp / PageDown to scroll  
+  - `q` to quit
+
+### ➡️ `top` (Real-time System Monitor)
+- **What it does:** Shows live CPU and memory usage.
+- **Navigation Tips:**  
+  - `Shift + M` — Sort by memory  
+  - `Shift + P` — Sort by CPU  
+  - `q` — Quit
+
+### ➡️ `htop` (Improved Interactive Monitor)
+- Install:
+```bash
+sudo apt-get install htop
+```
+- Run:
+```bash
+htop
+```
+- `F10` or `q` — Quit
+
+### ➡️ `kill` (Terminate Process)
+- Kill a process:
+```bash
+kill <PID>
+```
+- Force kill if needed:
+```bash
+kill -9 <PID>
+```
+> ⚠️ Use `kill -9` carefully — it forcefully stops the process.
+
+---
+
+## ✅ 5. Finding Files & Text
+
+### ➡️ `find` (Search for Files by Name)
+- Example:
+```bash
+find /home/pi -name "myfile.txt"
+```
+
+### ➡️ `grep` (Search for Text in Files)
+- Example:
+```bash
+grep "error" /var/log/syslog
+```
+
+---
+
+## ✅ Command Recap Table
+
+| **Command**                      | **Description**                               |
+|----------------------------------|-----------------------------------------------|
+| `pwd`                            | Shows current directory                       |
+| `ls -l`                          | Lists files with details                      |
+| `cd foldername`                  | Change directory                              |
+| `mkdir foldername`               | Create new directory                          |
+| `rm filename`                    | Delete a file                                 |
+| `nano filename`                  | Open file in nano editor                      |
+| `chmod 755 filename`             | Change file permissions                       |
+| `chown user:group filename`      | Change file ownership                         |
+| `ps aux`                         | Show running processes                        |
+| `kill PID`                       | Terminate a process by PID                    |
+| `top`                            | Real-time CPU and memory monitoring           |
+| `find /home -name \"file.txt\"`  | Find a file by name                           |
+| `grep \"word\" file.txt`         | Search for a word inside a file               |
+
+---
+
+✨ **As you learn more commands, add them to this file with full explanations!**
