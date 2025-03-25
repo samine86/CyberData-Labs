@@ -29,7 +29,7 @@ I maintain a detailed roadmap of my learning journey in `progress-tracker.md`.
 | ⏳ Security Basics         | Not Started    | -               |
 | ⏳ Cloud Fundamentals      | Not Started    | -               |
 
-📌 Check the full progress in `progress-tracker.md`.  
+📌 [Check the full progress here.](progress-tracker.md) 
 
 ---
 
